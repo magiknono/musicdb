@@ -1,0 +1,10 @@
+defmodule Musicdb.Albums.Album do
+  use Ecto.Schema
+
+  schema "album" do
+    field :title, :string
+    field :release_date, :date
+
+    has_many :tracks, Musicdb.Tracks.Track
+  end
+end

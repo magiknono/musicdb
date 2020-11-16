@@ -7,6 +7,8 @@ defmodule Musicdb.Tracks.Track do
     field :duration, :integer, default: 1
     field :index, :integer
     field :number_of_plays, :integer
+
+    belongs_to :album, Musicdb.Albums.Album
     timestamps()
   end
 
