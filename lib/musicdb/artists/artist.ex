@@ -6,5 +6,6 @@ defmodule Musicdb.Artists.Artist do
     field(:release_date, :date)
 
     has_many(:albums, Musicdb.Albums.Album)
+    has_many(:tracks, through: [:albums, :tracks])
   end
 end
