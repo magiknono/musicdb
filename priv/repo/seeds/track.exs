@@ -1,13 +1,13 @@
-alias Musicdb.{Repo, Track}
+alias Musicdb.Repo
 
 # Insert 1 record in Track
-Repo.insert(%Track{
-    title: "la bamboche",
-    duration: 30,
-    index: 1,
-    number_of_plays: 10
-}
-)
+# Repo.insert(%Track{
+#     title: "la bamboche",
+#     duration: 30,
+#     index: 1,
+#     number_of_plays: 10
+# }
+# )
 
 
 
