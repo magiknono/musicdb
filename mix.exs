@@ -22,8 +22,9 @@ defmodule Musicdb.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-    {:ecto_sql, "~> 3.5"},
-    {:postgrex, "~> 0.15.7"}
+      {:ecto_sql, "~> 3.5"},
+      {:postgrex, "~> 0.15.7"},
+      {:credo, "~> 1.5", only: [:dev, :test], runtime: false}
     ]
   end
 end

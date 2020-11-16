@@ -24,5 +24,4 @@ defmodule Musicdb.Tracks do
     track = Repo.get_by(Track, title: title)
     Repo.delete!(track)
   end
-
 end

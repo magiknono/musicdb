@@ -8,7 +8,6 @@ defmodule Musicdb.Application do
   def start(_type, _args) do
     children = [
       {Musicdb.Repo, []}
-
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

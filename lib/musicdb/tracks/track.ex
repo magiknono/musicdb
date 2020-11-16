@@ -3,12 +3,12 @@ defmodule Musicdb.Tracks.Track do
   import Ecto.Changeset
 
   schema "tracks" do
-    field :title, :string
-    field :duration, :integer, default: 1
-    field :index, :integer
-    field :number_of_plays, :integer
+    field(:title, :string)
+    field(:duration, :integer, default: 1)
+    field(:index, :integer)
+    field(:number_of_plays, :integer)
 
-    belongs_to :album, Musicdb.Albums.Album
+    belongs_to(:album, Musicdb.Albums.Album)
     timestamps()
   end
 

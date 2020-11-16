@@ -6,4 +6,4 @@ config :musicdb, Musicdb.Repo,
   password: "postgres",
   hostname: "localhost"
 
-  config :musicdb, ecto_repos: [Musicdb.Repo]
+config :musicdb, ecto_repos: [Musicdb.Repo]
