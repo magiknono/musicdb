@@ -57,4 +57,5 @@ defmodule Musicdb.Artists do
     Enum.map(artist.albums, &(&1.title))
     # add changeset for not nil with cond
   end
+
 end
