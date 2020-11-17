@@ -41,4 +41,20 @@ defmodule Musicdb.Artists do
   def list_albums_and_tracks_assoc_nested_with_artists do
     Repo.all(from a in Artist, preload: [albums: :tracks])
   end
+
+  def add_new_album_name_by_artist_id(artist_id, album_name) do
+    artist = Repo.get(Artist, artist_id)
+    new_album = Ecto.build_assoc(artist, :albums, title: album_name)
+    Repo.insert(new_album)
+
+    # Repo.get(Artist, artist_id)
+    # |> Ecto.build_assoc(:albums, title: album_name)
+    # |> Repo.insert
+  end
+
+  def list_albums_from_artist_name(artist_name) do
+    artist = Repo.one(from a in Artist, where: a.name == ^artist_name, preload: :albums)
+    Enum.map(artist.albums, &(&1.title))
+    # add changeset for not nil with cond
+  end
 end
