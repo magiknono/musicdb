@@ -8,5 +8,6 @@ defmodule Musicdb.Albums.Album do
     has_many :tracks, Musicdb.Tracks.Track
     belongs_to :artist, Musicdb.Artists.Artist
 
+    timestamps()
   end
 end

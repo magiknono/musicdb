@@ -1,0 +1,74 @@
+# Repo.insert(%Artist{ name: "random_name2", albums: [ %Album{ title: "random_album" } ]})
+
+# 09:33:33.967 [debug] QUERY OK db=0.2ms idle=1378.5ms
+# begin []
+
+# 09:33:33.973 [debug] QUERY OK db=0.7ms
+# INSERT INTO "artists" ("name","inserted_at","updated_at") VALUES ($1,$2,$3) RETURNING "id" ["random_name2", ~N[2020-11-17 08:33:33], ~N[2020-11-17 08:33:33]]
+
+# 09:33:33.976 [debug] QUERY OK db=1.2ms
+# INSERT INTO "albums" ("artist_id","title","inserted_at","updated_at") VALUES ($1,$2,$3,$4) RETURNING "id" [2, "random_album", ~N[2020-11-17 08:33:33], ~N[2020-11-17 08:33:33]]
+
+# 09:33:33.981 [debug] QUERY OK db=4.6ms
+# commit []
+# {:ok,
+#  %Musicdb.Artists.Artist{
+#    __meta__: #Ecto.Schema.Metadata<:loaded, "artists">,
+#    albums: [
+#      %Musicdb.Albums.Album{
+#        __meta__: #Ecto.Schema.Metadata<:loaded, "albums">,
+#        artist: #Ecto.Association.NotLoaded<association :artist is not loaded>,
+#        artist_id: 2,
+#        id: 1,
+#        inserted_at: ~N[2020-11-17 08:33:33],
+#        release_date: nil,
+#        title: "random_album",
+#        tracks: #Ecto.Association.NotLoaded<association :tracks is not loaded>,
+#        updated_at: ~N[2020-11-17 08:33:33]
+#      }
+#    ],
+#    id: 2,
+#    inserted_at: ~N[2020-11-17 08:33:33],
+#    name: "random_name2",
+#    tracks: #Ecto.Association.NotLoaded<association :tracks is not loaded>,
+#    updated_at: ~N[2020-11-17 08:33:33]
+#  }}
+# iex(10)> albums = Repo.all(from a in Artist, preload: :albums)
+
+# 09:33:44.625 [debug] QUERY OK source="artists" db=2.4ms queue=0.1ms idle=1033.3ms
+# SELECT a0."id", a0."name", a0."inserted_at", a0."updated_at" FROM "artists" AS a0 []
+
+# 09:33:44.628 [debug] QUERY OK source="albums" db=1.3ms queue=1.8ms idle=1036.1ms
+# SELECT a0."id", a0."title", a0."release_date", a0."artist_id", a0."inserted_at", a0."updated_at", a0."artist_id" FROM "albums" AS a0 WHERE (a0."artist_id" = ANY($1)) ORDER BY a0."artist_id" [[2, 1]]
+# [
+#   %Musicdb.Artists.Artist{
+#     __meta__: #Ecto.Schema.Metadata<:loaded, "artists">,
+#     albums: [],
+#     id: 1,
+#     inserted_at: ~N[2020-11-17 08:24:23],
+#     name: "random_name1",
+#     tracks: #Ecto.Association.NotLoaded<association :tracks is not loaded>,
+#     updated_at: ~N[2020-11-17 08:24:23]
+#   },
+#   %Musicdb.Artists.Artist{
+#     __meta__: #Ecto.Schema.Metadata<:loaded, "artists">,
+#     albums: [
+#       %Musicdb.Albums.Album{
+#         __meta__: #Ecto.Schema.Metadata<:loaded, "albums">,
+#         artist: #Ecto.Association.NotLoaded<association :artist is not loaded>,
+#         artist_id: 2,
+#         id: 1,
+#         inserted_at: ~N[2020-11-17 08:33:33],
+#         release_date: nil,
+#         title: "random_album",
+#         tracks: #Ecto.Association.NotLoaded<association :tracks is not loaded>,
+#         updated_at: ~N[2020-11-17 08:33:33]
+#       }
+#     ],
+#     id: 2,
+#     inserted_at: ~N[2020-11-17 08:33:33],
+#     name: "random_name2",
+#     tracks: #Ecto.Association.NotLoaded<association :tracks is not loaded>,
+#     updated_at: ~N[2020-11-17 08:33:33]
+#   }
+# ]

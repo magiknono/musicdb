@@ -10,6 +10,7 @@ defmodule Musicdb.Tracks.Track do
 
     belongs_to :album, Musicdb.Albums.Album
 
+    timestamps()
   end
 
   def changeset(track, attrs) do
