@@ -5,10 +5,15 @@ defmodule Musicdb.Artists do
 
   def create_artist(attrs) do
     %Artist{}
-    |> Artist.changeset(attrs)
+    |> Artist.update_or_create_changeset(attrs)
     |> Repo.insert()
   end
 
+  def update_artist(%Artist{} = artist, attrs) do
+    artist
+    |> Artist.update_or_create_changeset(attrs)
+    |> Repo.update
+  end
   def list_artists do
     Repo.all(Artist)
   end

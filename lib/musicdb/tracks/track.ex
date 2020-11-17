@@ -13,7 +13,7 @@ defmodule Musicdb.Tracks.Track do
     timestamps()
   end
 
-  def changeset(track, attrs) do
+  def create_changeset(track, attrs) do
     track
     |> cast(attrs, [:title, :duration, :index, :number_of_plays])
     |> validate_required([:title])

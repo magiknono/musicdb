@@ -11,7 +11,7 @@ defmodule Musicdb.Artists.Artist do
     timestamps()
   end
 
-  def changeset(artist, attrs) do
+  def update_or_create_changeset(artist, attrs) do
     artist
     |> cast(attrs, [:name])
     |> validate_required([:name])

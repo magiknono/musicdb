@@ -4,7 +4,7 @@ defmodule Musicdb.Tracks do
 
   def create_track(attrs) do
     %Track{}
-    |> Track.changeset(attrs)
+    |> Track.create_changeset(attrs)
     |> Repo.insert()
   end
 
