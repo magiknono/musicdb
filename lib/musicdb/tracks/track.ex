@@ -8,8 +8,8 @@ defmodule Musicdb.Tracks.Track do
     field(:index, :integer)
     field(:number_of_plays, :integer)
 
-    belongs_to(:album, Musicdb.Albums.Album)
-    timestamps()
+    belongs_to :album, Musicdb.Albums.Album
+
   end
 
   def changeset(track, attrs) do

@@ -5,6 +5,7 @@ defmodule Musicdb.Repo.Migrations.CreateAlbums do
     create table(:albums) do
       add :title, :string
       add :release_date, :date
+      add :artist_id, references(:artists)
 
       timestamps()
     end
