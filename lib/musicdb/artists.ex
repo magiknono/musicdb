@@ -26,6 +26,15 @@ defmodule Musicdb.Artists do
     Repo.get_by(Artist, name: name)
   end
 
+  def delete_artist_by_id(id) do
+    artist = Repo.get(Artist, id)
+    Repo.delete(artist)
+  end
+
+  def delete_artist(%Artist{} = artist) do
+    Repo.delete(artist)
+  end
+
   def delete_artist_by_name(name) do
     artist = Repo.get_by(Artist, name: name)
     Repo.delete!(artist)
