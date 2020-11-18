@@ -18,12 +18,12 @@ defmodule Musicdb.Artists do
     Repo.all(Artist)
   end
 
-  def show_artist_by_id(id) do
+  def get_artist_by_id!(id) do
     Repo.get!(Artist, id)
   end
 
-  def show_artist_by_name(name) do
-    Repo.get_by!(Artist, name: name)
+  def get_artist_by_name(name) do
+    Repo.get_by(Artist, name: name)
   end
 
   def delete_artist_by_name(name) do
