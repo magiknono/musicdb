@@ -26,7 +26,7 @@ defmodule Musicdb.Tracks do
   end
 
   def count_tracks do
-    Repo.aggregate(Track, :count)
+    Repo.aggregate(Track, :count, :id)
     # Repo.aggregate(Track, :aggregatefx, :column_table)
     # aggregate functions available count, avg, min, max, sum
   end
