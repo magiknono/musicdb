@@ -24,4 +24,10 @@ defmodule Musicdb.Tracks do
     track = Repo.get_by(Track, title: title)
     Repo.delete!(track)
   end
+
+  def count_tracks do
+    Repo.aggregate(Track, :count)
+    # Repo.aggregate(Track, :aggregatefx, :column_table)
+    # aggregate functions available count, avg, min, max, sum
+  end
 end
