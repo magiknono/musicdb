@@ -1,6 +1,7 @@
 defmodule Musicdb.Tracks.Track do
   use Ecto.Schema
   import Ecto.Changeset
+  @moduledoc false
 
   schema "tracks" do
     field(:title, :string)
@@ -8,7 +9,7 @@ defmodule Musicdb.Tracks.Track do
     field(:index, :integer)
     field(:number_of_plays, :integer)
 
-    belongs_to :album, Musicdb.Albums.Album
+    belongs_to(:album, Musicdb.Albums.Album)
 
     timestamps()
   end

@@ -3,22 +3,26 @@ defmodule Musicdb.Repo do
     otp_app: :musicdb,
     adapter: Ecto.Adapters.Postgres
 
-    @doc """
-    `Musicdb.Repo.count/1` : Count number of records on a table.
+  @moduledoc """
+  Repo module
+  """
 
-    ## Parameters
+  @doc """
+  `Musicdb.Repo.count/1` : Count number of records on a table.
 
-      - table: string that represents the name of a table
+  ## Parameters
 
-    ## Examples
+    - table: string that represents the name of a table
 
-        iex> Musicdb.Repo.count("albums")
+  ## Examples
 
-        {:ok, 7}
+      iex> Musicdb.Repo.count("albums")
 
-    """
-    def count(table) do
-      count = aggregate(table, :count, :id)
-      {:ok, count}
-    end
+      {:ok, 7}
+
+  """
+  def count(table) do
+    count = aggregate(table, :count, :id)
+    {:ok, count}
+  end
 end

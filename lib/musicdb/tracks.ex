@@ -1,6 +1,7 @@
 defmodule Musicdb.Tracks do
   alias Musicdb.Repo
   alias Musicdb.Tracks.Track
+  @moduledoc false
 
   def create_track(attrs) do
     %Track{}
