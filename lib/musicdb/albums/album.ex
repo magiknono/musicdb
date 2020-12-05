@@ -11,5 +11,6 @@ defmodule Musicdb.Albums.Album do
     many_to_many(:genres, Musicdb.Genres.Genre, join_through: "albums_genres")
 
     timestamps()
+
   end
 end

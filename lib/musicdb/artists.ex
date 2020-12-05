@@ -50,7 +50,7 @@ defmodule Musicdb.Artists do
   end
 
   def list_albums_and_tracks_assoc_nested_with_artists do
-    Repo.all(from(a in Artist, preload: [albums: :tracks]))
+    Repo.all(from a in Artist, preload: [albums: :tracks])
   end
 
   def add_new_album_name_by_artist_id(artist_id, album_name) do
